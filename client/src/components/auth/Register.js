@@ -21,6 +21,13 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
+  componentDidMount(){
+    if(this.props.auth.isAuthenticated){
+      this.props.history.push('/dashboard')
+    }
+  }
+
+
   componentWillReceiveProps(nextProps){
     if(nextProps.errors){
       this.setState({errors: nextProps.errors})
@@ -51,7 +58,7 @@ class Register extends Component {
 
       const { errors } = this.state
 
-      const { user } = this.props.auth
+      // const { user } = this.props.auth
 
         return (
             <div className="register">
