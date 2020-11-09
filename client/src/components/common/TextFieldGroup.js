@@ -34,4 +34,8 @@ TextFieldGroup.prototype = {
     disabled: propTypes.string
 }
 
+TextFieldGroup.defaultProps = {
+    type: 'text'
+}
+
 export default TextFieldGroup
