@@ -1,7 +1,9 @@
 import React, { Component } from "react"
+import { Link } from 'react-router-dom'
 import propTypes from "prop-types"
 import { connect } from "react-redux"
 import { getCurrentProfile } from "../../actions/profileActions"
+import Spinner from '../common/Spinner'
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -15,9 +17,20 @@ class Dashboard extends Component {
     let dashBoardContent;
 
     if(profile === null || loading ){
-      dashBoardContent = <h4>Loading....</h4>
+      dashBoardContent = <Spinner />
     } else {
-      dashBoardContent = <h4>Hello</h4>
+      //check if the user has a profile or not
+      if(Object.keys(profile).length > 0){
+        dashBoardContent = <h3>TODO: Diaplay profile</h3>
+      } else {
+        dashBoardContent = (
+          <div>
+            <p className="lead text-muted">Welcome {user.name}</p>
+            <p>You have not yet setup a profile, please add some info</p>
+            <Link to="/create-profile" className="btn btn-lg btn-info">Create Profile</Link>
+          </div>
+        )
+      }
     }
 
     return (
