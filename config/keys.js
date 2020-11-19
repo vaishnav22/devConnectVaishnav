@@ -1,4 +1,5 @@
-module.exports = {
-    mongoURI : 'mongodb+srv://vaishnav:Tinku9999@devconnect.naoma.mongodb.net/devConnect?retryWrites=true&w=majority',
-    secretOrKey: 'vaishnav'
+if(process.env.NODE_ENV === 'production'){
+    module.exports = require('./keys_prod')
+} else{
+    module.exports = require('./keys_dev')
 }

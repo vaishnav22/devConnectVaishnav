@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import { withRouter } from 'react-router-dom'
 import { deleteExperience } from '../../actions/profileActions';
 
 class Experience extends Component {
@@ -55,4 +56,4 @@ Experience.propTypes = {
   deleteExperience: PropTypes.func.isRequired
 };
 
-export default connect(null, { deleteExperience })(Experience);
+export default connect(null, { deleteExperience })(withRouter(Experience));
